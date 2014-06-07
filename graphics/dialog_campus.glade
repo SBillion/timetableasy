@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="dialog.^">
+    <property name="width_request">400</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Cr&#xE9;ation d'un campus</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="icon">images/icon_planning.png</property>
+    <property name="type_hint">normal</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="vbox1.~">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkHBox" id="hbox1.~">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="label1.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Nom du campus : </property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="name">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="action.~">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="cancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_dialog_cancel"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="valid">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">cancel</action-widget>
+      <action-widget response="0">valid</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkMenu" id="menu.$">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="add">
+        <property name="label" translatable="yes">Nouveau</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour cr&#xE9;er un nouveau campus</property>
+        <property name="image">image.add</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_add"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="edit">
+        <property name="label" translatable="yes">Editer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour modifier ce campus</property>
+        <property name="image">image.edit</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_edit"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="delete">
+        <property name="label" translatable="yes">Supprimer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour supprimer ce campus</property>
+        <property name="image">image.delete</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_delete"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="image.add">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/campus_add.png</property>
+  </object>
+  <object class="GtkImage" id="image.edit">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/campus_edit.png</property>
+  </object>
+  <object class="GtkImage" id="image.delete">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/campus_delete.png</property>
+  </object>
+</interface>

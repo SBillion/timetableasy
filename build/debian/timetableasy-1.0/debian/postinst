@@ -1,0 +1,13 @@
+#!/bin/sh
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+archive="/usr/share/timetableasy/lib/SQLAlchemy-0.6.1.tar.gz"
+if [ -f $archive ]
+	then 
+		cd /tmp
+		tar xzf $archive 
+		cd SQLAlchemy-0.6.1
+		python setup.py install
+		rm -rf /tmp/SQLAlchemy-0.6.1
+		rm $archive
+fi
+

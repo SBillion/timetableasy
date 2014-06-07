@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0  
+Name=Timetableasy
+GenericName=timetableasy
+Comment=Gestionnaire de planning pour grandes écoles
+Exec=timetableasy
+Icon=/usr/share/timetableasy/graphics/images/icon_planning.png
+Terminal=false
+Type=Application
+Categories=Office;Calendar
+Name[fr_FR]=Timetableasy

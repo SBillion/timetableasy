@@ -1,0 +1,13 @@
+Source: timetableasy
+Section: web
+Priority: optional
+Maintainer: BILLION Sébastien (moi)
+Build-Depends: cdbs,debhelper (>= 7)
+XS-Python-Version: >=2.6
+Standards-Version: 3.8.4
+
+Package: timetableasy
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: ${shlibs:Depends}, ${python:Depends},python-gtk2, python-webkit, python-glade2,python-mysqldb,python-dateutil
+Description: Un gestionnaire de planning pour les universités et écoles supérieures

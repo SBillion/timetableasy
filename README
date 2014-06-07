@@ -1,0 +1,20 @@
+Decompresser l'archive.
+
+#### Sous Ubuntu ###
+
+Double cliquez sur le .deb.
+
+
+Pour lancer l'application sans l'installer, ouvrez un terminal et tapez ./run.sh
+à la racine du dossier.
+Le dossier build, comprit dans les sources, contient les fichiers necessaires
+pour empaqueter le projet en .deb.
+Ouvrez un terminal et dans timetableasy/build/timetableasy-1.0/ 
+faites sh compiler.sh.
+
+
+
+
+### Installation sous windows ###
+
+Double cliquez sur setup_timetableasy.exe et suivez les instructions.

@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="dialog.^">
+    <property name="width_request">500</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Pr&#xE9;f&#xE9;rences de Timetableasy</property>
+    <property name="icon">images/icon_planning.png</property>
+    <property name="type_hint">normal</property>
+    <property name="has_separator">False</property>
+    <signal name="response" handler="on_settings_response"/>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="vbox3.~">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkVBox" id="vbox4.~">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkFrame" id="frame1.~">
+                <property name="visible">True</property>
+                <property name="label_xalign">0.029999999329447746</property>
+                <child>
+                  <object class="GtkAlignment" id="alignment1.~">
+                    <property name="visible">True</property>
+                    <property name="top_padding">5</property>
+                    <property name="bottom_padding">5</property>
+                    <property name="left_padding">10</property>
+                    <property name="right_padding">5</property>
+                    <child>
+                      <object class="GtkVBox" id="vbox5.~">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkHBox" id="hbox6.~">
+                            <property name="visible">True</property>
+                            <child>
+                              <object class="GtkLabel" id="label6.~">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Affichage de l'heure</property>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBox" id="dialog.hour_activate">
+                                <property name="width_request">180</property>
+                                <property name="visible">True</property>
+                                <property name="model">True_False</property>
+                                <signal name="changed" handler="on_hour_activate_changed"/>
+                                <child>
+                                  <object class="GtkCellRendererText" id="cellrenderertext1.~"/>
+                                  <attributes>
+                                    <attribute name="text">0</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel" id="label7.~">
+                    <property name="visible">True</property>
+                    <property name="xpad">4</property>
+                    <property name="label" translatable="yes">&lt;b&gt;G&#xE9;n&#xE9;ral&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator1.~">
+                <property name="height_request">24</property>
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFrame" id="frame2.~">
+                <property name="visible">True</property>
+                <property name="label_xalign">0.029999999329447746</property>
+                <child>
+                  <object class="GtkAlignment" id="alignment2.~">
+                    <property name="visible">True</property>
+                    <property name="top_padding">5</property>
+                    <property name="bottom_padding">5</property>
+                    <property name="left_padding">10</property>
+                    <property name="right_padding">5</property>
+                    <child>
+                      <object class="GtkVBox" id="vbox6.~">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkHBox" id="hbox7.~">
+                            <property name="visible">True</property>
+                            <child>
+                              <object class="GtkLabel" id="label8.~">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Th&#xE8;me du planning</property>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBox" id="dialog.planning_theme">
+                                <property name="width_request">180</property>
+                                <property name="visible">True</property>
+                                <property name="model">Theme</property>
+                                <signal name="changed" handler="on_planning_theme_changed"/>
+                                <child>
+                                  <object class="GtkCellRendererText" id="cellrenderertext2.~"/>
+                                  <attributes>
+                                    <attribute name="text">0</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel" id="label9.~">
+                    <property name="visible">True</property>
+                    <property name="xpad">4</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Planning&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area3">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="settings.close">
+                <property name="label">gtk-close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_settings_close"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">settings.close</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkListStore" id="True_False">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Oui</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Non</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="Theme">
+    <columns>
+      <!-- column-name Data -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Defaut</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Gris</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Bleu</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Constraste</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Lightness</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Mint</col>
+      </row>
+    </data>
+  </object>
+</interface>

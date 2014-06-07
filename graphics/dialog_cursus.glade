@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="dialog.^">
+    <property name="width_request">400</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Cr&#xE9;ation d'un cursus</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="icon">images/icon_planning.png</property>
+    <property name="type_hint">normal</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="vbox.~">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="table.~">
+            <property name="visible">True</property>
+            <property name="n_rows">2</property>
+            <property name="n_columns">2</property>
+            <child>
+              <object class="GtkEntry" id="name">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="name.label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Nom :</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="start.label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">D&#xE9;but :</property>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="start">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="secondary_icon_pixbuf">images/myplanning.png</property>
+                <property name="secondary_icon_activatable">True</property>
+                <signal name="grab_focus" handler="on_date_focus"/>
+                <signal name="icon_press" handler="on_calendar_icon_press"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="action.~">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="cancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_dialog_cancel"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="valid">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">cancel</action-widget>
+      <action-widget response="0">valid</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkWindow" id="popup_calendar.$">
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="decorated">False</property>
+    <signal name="focus_out_event" handler="on_popup_calendar_unfocus"/>
+    <child>
+      <object class="GtkCalendar" id="calendar.$">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="year">2010</property>
+        <property name="month">3</property>
+        <property name="day">21</property>
+        <property name="show_week_numbers">True</property>
+        <signal name="day_selected_double_click" handler="on_calendar_day_selected_double_click"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="menu.$">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="add">
+        <property name="label" translatable="yes">Nouveau</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour cr&#xE9;er un nouveau cursus</property>
+        <property name="image">image.add</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_add"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="edit">
+        <property name="label" translatable="yes">Editer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour modifier ce cursus</property>
+        <property name="image">image.edit</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_edit"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="delete">
+        <property name="label" translatable="yes">Supprimer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour supprimer ce cursus</property>
+        <property name="image">image.delete</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_delete"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="image.add">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/cursus_add.png</property>
+  </object>
+  <object class="GtkImage" id="image.edit">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/cursus_edit.png</property>
+  </object>
+  <object class="GtkImage" id="image.delete">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/cursus_delete.png</property>
+  </object>
+</interface>

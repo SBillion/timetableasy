@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<link rel='stylesheet' type='text/css' theme='maintheme' href='./theme/pepper/theme.css' />
+<link rel='stylesheet' type='text/css' href='./tipsy.css' />
+<link rel='stylesheet' type='text/css' href='./fullcalendar.css' />
+<script type='text/javascript' src='./jquery/jquery.js'></script>
+<script type='text/javascript' src='./jquery/ui.core.js'></script>
+<script type='text/javascript' src='./jquery/ui.draggable.js'></script>
+<script type='text/javascript' src='./jquery/ui.resizable.js'></script>
+<script type='text/javascript' src='./jquery/jquery.tipsy.js'></script>
+<script type='text/javascript' src='./utilities.js'></script>
+<script type='text/javascript' src='./fullcalendar.js'></script>
+<script type="text/javascript">
+	function change_theme(theme)
+	{
+		if(theme == undefined)
+			theme = 'pepper'
+		$("link[theme=maintheme]").attr({href : "./theme/"+theme+"/theme.css"});
+	}
+
+	
+	$(document).ready(function() {
+		function calendarheight()
+		{
+			return $(window).height();
+		}
+		
+		function slotheight()
+		{
+			h = ($(window).height() - $(".fc-agenda-head:visible").height() - 11) / ($('#calendar').fullCalendar('option', 'maxTime') - $('#calendar').fullCalendar('option', 'minTime'));
+			if(h < 50) {
+				$(".fc-agenda-head:visible .fc-first th:last").show();
+				return 50;
+			}
+			else {
+				$(".fc-agenda-head:visible .fc-first th:last").hide();
+				return h;
+			}
+		}
+
+		/*var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		*/
+		
+		block_tooltip = false;
+		$("body").css('width', $(window).width());
+		
+		$('#calendar').fullCalendar({
+			/* general options */
+			firstDay: 1,
+			theme: true,
+			header: false,
+			height: calendarheight(),
+
+			/* view options */
+			defaultView: 'agendaWeek',
+
+			/* agenda options */
+			allDaySlot: false,		/* don't display "all-day" */
+			slotMinutes: 60,		/* event are every hour */
+			defaultEventMinutes: 60,	/* by default an event take 1 hour */
+			minTime: 7,			/* calendar start at 7h am */
+			maxTime: 21,			/* calendar end at 21h pm */
+
+			/* Current Date */
+			/*year: %d,
+			month: %d,
+			date: %d,*/
+
+			/* customization */
+			timeFormat: 'H:mm', // uppercase H for 24-hour clock
+			axisFormat: "H'h'",
+			columnFormat: {
+				month: "ddd",
+				week: "ddd dd/MM"
+			},
+			monthNames:["Janvier","F\351vrier","Mars","Avril","Mai","Juin","Juillet","Ao\373t","Septembre","Octobre","Novembre","D\351cembre"],
+			monthNamesShort:["Jan","F\351v","Mars","Avr","Mai","Juin","Juil","Ao\373t","Sept","Oct","Nov","D\351c"],
+			dayNames:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],
+			dayNamesShort: ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"],
+
+			/* agenda events clicking/hovering */
+			dayClick: function(date, allDay, jsEvent, view) {
+				/* should select current day and zomm into day view ? */
+				alert('day click')
+			},
+			eventClick: function(calEvent, jsEvent, view) {
+				$(this).tipsy('hide');
+				if(calEvent.editable == false)
+					return false;
+				query = "/signal/event-click/?id=";
+				query += calEvent.id;
+				document.title = query;
+				document.title = "none";
+			},
+			dayRightClick: function(date, allDay, jsEvent, view) {
+				query = "/signal/day-right-click/?date=";
+				query+= date;
+				document.title = query;
+				document.title = "none";
+				return false;
+			},
+			eventRightClick: function(calEvent, jsEvent, view) {
+				$(this).tipsy('hide');
+				query = "/signal/event-right-click/?id=";
+				query += calEvent.id;
+				document.title = query;
+				document.title = "none";
+				return false;
+			},
+			eventRender: function(event, element, view) {
+				$(element).tipsy({
+					fallback: event.tipsy,
+					gravity: $.fn.tipsy.autoALL,
+					fade: true,
+					html: true,
+					delayIn: 500,
+				});
+				if(!event.editable)
+					$(element).find('a').css('cursor', 'default');
+			},
+
+			/* agenda events dragging/resizing */
+			editable: true,
+			eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
+				if (dayDelta != 0) {
+					revertFunc();
+					return;
+				}
+				query = "/signal/event-resize/?minutedelta=";
+				query += minuteDelta;
+				query += "&id=";
+				query += event.id;
+				document.title = query;
+				document.title = "none";
+			},
+			eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+				if (allDay) {
+					revertFunc();
+					return;
+				}
+				query = "/signal/event-drop/?daydelta=";
+				query += dayDelta;
+				query += "&minutedelta=";
+				query += minuteDelta;
+				query += "&id=";
+				query += event.id;
+				document.title = query;
+				document.title = "none";
+				date = event.start.getTime()/1000;
+				fdate = ucwords(strftime('%A %d %B %Y,<br />%H:%M:%S', date));
+				event.tipsy = event.tipsy.replace("<dateXXX>"+event.fdate+"</dateXXX>", "<dateXXX>"+fdate+"</dateXXX>");
+				event.fdate = fdate;
+				block_tooltip = false;
+			},
+			eventDragStart: function(event, jsEvent, ui, view) {
+				$(this).tipsy('hide');
+				$(this).tipsy('disable');
+				block_tooltip = true;
+			},
+			eventResizeStart: function(event, jsEvent, ui, view) {
+				$(this).tipsy('hide');
+				$(this).tipsy('disable');
+			},
+			eventMouseout: function(event, jsEvent, view) {
+				$(this).tipsy('hide');
+			},
+
+			/* list of events */
+			/*events: "/signal/events/",*/
+			events: function(start, end, callback) {
+				query = '/signal/events/?start=';
+				query += Math.round(start.getTime() / 1000);
+				query += '&end=';
+				query += Math.round(end.getTime() / 1000);
+				document.title = query;
+				document.title = "none";
+				text = $('#events').text();
+				events = eval(text);
+				if (events)
+					callback(events);
+			},
+		});
+		
+		$('#calendar .fc-agenda-body tr, #calendar .fc-agenda-body .ui-state-default div').css('height', slotheight());
+
+		$(window).resize(function() {
+			$("body").css('width', $(window).width());
+			$('#calendar').fullCalendar('option', 'height', calendarheight());
+			$('#calendar .fc-agenda-body tr, #calendar .fc-agenda-body .ui-state-default div').css('height', slotheight());
+		});
+	});
+
+	$(document).bind('contextmenu',function(ev) {
+		return false;
+	});
+
+</script>
+<style type='text/css'>
+	body {
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	}
+
+	#calendar .fc-agenda-body tr,
+	#calendar .fc-agenda-body .ui-state-default div {
+		height: 50px
+	}
+
+	* {
+		margin: 0;
+	}
+
+	/*.fc-view-agendaDay .fc-agenda-head {
+		display: none;
+	}*/
+</style>
+</head>
+<body>
+<div id='calendar'></div>
+<div id='events' style="display:none;" /></div>
+</body>
+</html>

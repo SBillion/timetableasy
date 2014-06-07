@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="dialog.^">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Cr&#xE9;ation de cours</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="icon">images/icon_planning.png</property>
+    <property name="type_hint">normal</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="vbox1.~">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="table1.~">
+            <property name="visible">True</property>
+            <property name="n_rows">7</property>
+            <property name="n_columns">2</property>
+            <child>
+              <object class="GtkEntry" id="name">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label1.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Nom : </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label2.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Heures de cours distancielles : </property>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label3.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Heures de cours en classe : </property>
+                <property name="use_markup">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label4.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Heures de travaux pratiques : </property>
+                <property name="use_markup">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label5.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Heures de travaux pratiques not&#xE9;s : </property>
+              </object>
+              <packing>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label6.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Heures d'examens : </property>
+              </object>
+              <packing>
+                <property name="top_attach">5</property>
+                <property name="bottom_attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label7.~">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Heures d'examens oraux :</property>
+              </object>
+              <packing>
+                <property name="top_attach">6</property>
+                <property name="bottom_attach">7</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="c_elearning">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">3</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="adjustment">ajust_c_elearning.~</property>
+                <property name="numeric">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="c_classroom">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">3</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="adjustment">ajust_c_classroom.~</property>
+                <property name="numeric">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="c_practice">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">3</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="adjustment">ajust_c_practice.~</property>
+                <property name="numeric">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="e_practice">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">3</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="adjustment">ajust_e_practice.~</property>
+                <property name="numeric">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="e_exam">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">3</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="adjustment">ajust_e_exam.~</property>
+                <property name="numeric">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">5</property>
+                <property name="bottom_attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="e_oral">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">3</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="adjustment">ajust_e_oral.~</property>
+                <property name="numeric">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">6</property>
+                <property name="bottom_attach">7</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="action_area1.~">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="cancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_dialog_cancel"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="valid">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">cancel</action-widget>
+      <action-widget response="0">valid</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkAdjustment" id="ajust_c_elearning.~">
+    <property name="value">1</property>
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ajust_c_classroom.~">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ajust_c_practice.~">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ajust_e_practice.~">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ajust_e_exam.~">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ajust_e_oral.~">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkMenu" id="menu.$">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="add">
+        <property name="label" translatable="yes">Dupliquer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour dupliquer ce cours</property>
+        <property name="image">image.add</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_add"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="edit">
+        <property name="label" translatable="yes">Editer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour &#xE9;diter ce cours</property>
+        <property name="image">image.edit</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_edit"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="delete">
+        <property name="label" translatable="yes">Supprimer</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clic pour supprimer ce cours</property>
+        <property name="image">image.delete</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_menu_delete"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="image.add">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/course_add.png</property>
+  </object>
+  <object class="GtkImage" id="image.edit">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/course_edit.png</property>
+  </object>
+  <object class="GtkImage" id="image.delete">
+    <property name="visible">True</property>
+    <property name="pixbuf">images/course_delete.png</property>
+  </object>
+</interface>
